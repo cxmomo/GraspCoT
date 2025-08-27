@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.5.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "graspcot"
+version = "1.0.0"
+description = "A 6-DoF grasp detection framework that integrates a Chain-of-Thought (CoT) reasoning mechanism."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "transformers==4.37.2", "tokenizers==0.15.1", "sentencepiece==0.1.99", "shortuuid",
+    "accelerate==0.21.0", "peft", "bitsandbytes",
+    "pydantic", "markdown2[all]", "numpy", "scikit-learn==1.2.2",
+    "gradio==4.29.0", "gradio_client==0.16.1",
+    "requests", "httpx==0.27.0", "uvicorn", "fastapi",
+    "einops==0.6.1", "einops-exts==0.0.4", "timm==0.6.13", "opencv-python", "protobuf"
+]
+
+[project.optional-dependencies]
+train = ["deepspeed==0.12.6", "ninja", "wandb"]
+build = ["build", "twine"]
+
+
+[tool.setuptools.packages.find]
+exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
+
+[tool.wheel]
+exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
