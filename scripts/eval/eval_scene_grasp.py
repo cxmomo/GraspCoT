@@ -79,8 +79,6 @@ if __name__ == "__main__":
     emds = np.array(emd_list)
     print(f"Average EMD: {np.mean(emds)}") 
 
-
-    cnt = 0
     cfr_list = []
     for scene, datapoint in tqdm(generated_data.items()):
         pc_path = datapoint["pc_path"]
@@ -106,6 +104,5 @@ if __name__ == "__main__":
         # cfr = collision_free_rate(pc, gt_grasps)
         if cfr_i is not None:
             cfr_list.append(cfr_i)
-        cnt +=1
     cfr = np.array(cfr_list)
     print(f"Average CFR: {np.mean(cfr)}")   
