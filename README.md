@@ -133,7 +133,7 @@ bash scripts/train/dist_train.sh
    ```
    cd checkpoints/llava-graspcot
    ln -s ../../pretrained_llms/llava-3d-7b/* ./
-   python llava/eval/generate_scene_grasp.py --model-path checkpoints/llava_graspcot/ --model-base pretrained_llms/llava-3d-7b/ --data-path data/grasp_anything --output_dir checkpoints/llava_graspcot/
+   python llava/eval/generate_scene_grasp.py --model-path checkpoints/llava-graspcot/ --model-base pretrained_llms/llava-3d-7b/ --data-path data/grasp_anything --output_dir checkpoints/llava-graspcot/
    python scripts/eval/eval_scene_grasp.py --data checkpoints/llava-graspcot/scenegrasp_gen_data.pkl
    ```
 
