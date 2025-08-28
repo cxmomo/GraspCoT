@@ -71,9 +71,9 @@ We test our codes under the following environment:
    mkdir data
    ```
 2. Download nuScenes from [Grasp-Anything-6D](https://huggingface.co/datasets/airvlab/Grasp-Anything-6D), follow their usage instructions, and put it in `data/grasp_anything`.
-3. Download the revised scenario description file with bugs fixed from [Google Drive](https://drive.google.com/file/d/1hpDD6PSA9l4vqDmtyUfM9rqzHpK9aQs-/view?usp=sharing), unzip, and put it in `data/grasp_anything`.
-4. Download the generated flexible instruction info files of [train](https://drive.google.com/file/d/1VLga3xvwh5qyUNNyb73odzxDvSttCMiA/view?usp=sharing) and [val](https://drive.google.com/file/d/17Ri0tnFqir023IIvWpT-AeC1RuqvBR68/view?usp=sharing) sets, and put it in `data/grasp_anything/dialogues`.
-5. Generate the projected images, depth maps, and a series of grasping info files from colored point cloud.
+3. Download the revised scenario description file with bugs fixed from [Google Drive](https://drive.google.com/file/d/1hpDD6PSA9l4vqDmtyUfM9rqzHpK9aQs-/view?usp=sharing), unzip, and replace the original directory `scene_description` (downloaded from the previous step) in `data/grasp_anything`.
+4. Download the generated flexible instruction info files of [train](https://drive.google.com/file/d/1VLga3xvwh5qyUNNyb73odzxDvSttCMiA/view?usp=sharing) and [val](https://drive.google.com/file/d/17Ri0tnFqir023IIvWpT-AeC1RuqvBR68/view?usp=sharing) sets, and put them in `data/grasp_anything/dialogues`.
+5. Generate the projected images, depth maps, and a series of grasping info files from the colored point cloud.
    ```
    bash scripts/create_grasp_data.sh
    ```
