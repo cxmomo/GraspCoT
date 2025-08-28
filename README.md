@@ -100,7 +100,7 @@ data/grasp_anything
    ```
    mkdir pretrained_llms
    ```
-2. Download [pretrained LLaVA-3D-7B](https://huggingface.co/ChaimZhu/LLaVA-3D-7B) and [pretrained CLIP](https://huggingface.co/openai/clip-vit-large-patch14-336) put it in directory `pretrained_llms/`:
+2. Download [pretrained LLaVA-3D-7B](https://huggingface.co/ChaimZhu/LLaVA-3D-7B) and [pretrained CLIP](https://huggingface.co/openai/clip-vit-large-patch14-336), then put it in directory `pretrained_llms/`:
 
 ```
 pretrained_llms
