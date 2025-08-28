@@ -220,8 +220,8 @@ def _fill_grasp_trainval_infos(id=0, version="train", pruning=False):
             
             depth_map, img_rgb = points2deprgb(proj_points, pc_rgb, width, height)
             
-            # if not os.path.exists(f"data/grasp_anything/rgb/{scene}_{str(k)}.png"):
-            #     cv2.imwrite(f"data/grasp_anything/rgb/{scene}_{str(k)}.png", cv2.cvtColor(img_rgb, cv2.COLOR_RGB2BGR))
+            if not os.path.exists(f"data/grasp_anything/rgb/{scene}_{str(k)}.png"):
+                cv2.imwrite(f"data/grasp_anything/rgb/{scene}_{str(k)}.png", cv2.cvtColor(img_rgb, cv2.COLOR_RGB2BGR))
             
             # img_rgb_list.append(img_rgb) # 0-255
             depth_map_list.append(depth_map) # 0-255
@@ -232,8 +232,8 @@ def _fill_grasp_trainval_infos(id=0, version="train", pruning=False):
         ext_all = torch.stack(ext_list).to(torch.float32).numpy()
         K_all =  torch.stack(K_list).to(torch.float32).numpy()
         
-        # if not os.path.exists(f"data/grasp_anything/depth/{scene}.npy"):
-        #     np.save(f"data/grasp_anything/depth/{scene}.npy", depth_map_all)
+        if not os.path.exists(f"data/grasp_anything/depth/{scene}.npy"):
+            np.save(f"data/grasp_anything/depth/{scene}.npy", depth_map_all)
 
         info = {
             'scene_token': scene,
