@@ -762,9 +762,7 @@ class GraspcotDataset_Train(Dataset):
         query_obj_list = used_obj_names
 
         request_str = "How many objects need to be grasped in this scene?"
-        # if len(used_dia_objs)>=10:
-        #     print(used_obj_names)
-        #     print(dialog_list[0])
+ 
         obj_num = number_model[len(used_dia_objs)-1]
         response_str = obj_num_model[random.randint(0, num_obj_num-1)]+ obj_num +"."
         mask_response_str = response_str.replace(obj_num, mask_text_llava_compatible(obj_num, self.tokenizer))
@@ -970,44 +968,36 @@ class GraspcotDataset_Test(Dataset):
         ann_infos = self.data_infos['infos']
         dialogue_infos = self.dialogue_infos['infos']
 
-        # 用于存储筛选后的元素
         aligned_list = []
         scene_tokens_ann = set()
         scene_tokens_dialogue = set()
 
-        # 先遍历ann_infos提取所有的scene_token，存入scene_tokens_ann集合
         for ann_info in ann_infos:
             scene_token = ann_info.get('scene_token')
             if scene_token:
                 scene_tokens_ann.add(scene_token)
 
-        # 再遍历dialogue_infos提取所有的scene_token，存入scene_tokens_dialogue集合
         for dialogue_info in dialogue_infos:
             scene_token = dialogue_info.get('scene_token')
             if scene_token:
                 scene_tokens_dialogue.add(scene_token)
 
-        # 找出两个集合中共同的scene_token
         common_scene_tokens = scene_tokens_ann & scene_tokens_dialogue
 
-        # 创建一个字典，用于临时存储同一个scene_token对应的合并后的字典数据
         combined_dict_cache = {}
         for scene_token in common_scene_tokens:
             combined_dict_cache[scene_token] = {}
 
-        # 遍历ann_infos，将对应scene_token的键值对合并到combined_dict_cache中
         for ann_info in ann_infos:
             scene_token = ann_info.get('scene_token')
             if scene_token in common_scene_tokens:
                 combined_dict_cache[scene_token].update(ann_info)
 
-        # 遍历dialogue_infos，将对应scene_token的键值对合并到combined_dict_cache中
         for dialogue_info in dialogue_infos:
             scene_token = dialogue_info.get('scene_token')
             if scene_token in common_scene_tokens:
                 combined_dict_cache[scene_token].update(dialogue_info)
 
-        # 将合并后的字典数据添加到aligned_list
         for combined_dict in combined_dict_cache.values():
             aligned_list.append(combined_dict)
 
