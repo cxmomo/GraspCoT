@@ -20,15 +20,9 @@ Xiaomeng Chu, Jiajun Deng, Guoliang You, Wei Liu, Xingchen Li, Jianmin Ji, Yanyo
 
 ## Overview
 
-This repository is an official implementation of [GraspCOT](https://arxiv.org/abs/2503.16013), an innovative 6-DoF grasp detection framework that integrates a Chain-of-Thought (CoT) reasoning mechanism oriented to physical properties, guided by auxiliary question-answering (QA) tasks.
+This repository is an official implementation of [GraspCOT](https://arxiv.org/abs/2503.16013), an innovative 6-DoF grasp detection framework that integrates a Chain-of-Thought (CoT) reasoning mechanism oriented to physical properties, guided by auxiliary question-answering (QA) tasks. The video demonstration is included [here](assets/2338_video_demo.mp4).
 <div style="text-align: center;">
     <img src="assets/arch.png" alt="Dialogue_Teaser" width=95% >
-</div>
-
-<div align="center">
-  <video src="assets/2338_video_demo.mp4" width="95%" controls>
-    Your browser does not support the video tag.
-  </video>
 </div>
 
 ## Environment
